@@ -1,0 +1,71 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>汽车出租</title>
+    <!-- 引入 Bootstrap -->
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/admin.css">
+</head>
+<body>
+<div class="page">
+    <!-- 路径导航 -->
+    <ol class="breadcrumb">
+        <li>首页</li>
+        <li class="active">汽车出租</li>
+    </ol>
+    <!-- 新增表单 -->
+    <form class="form-horizontal sm-form" action="rent.html" method="post">
+        <div class="form-group">
+            <label class="control-label col-md-2">出租单号</label>
+            <div class="col-md-10">
+                <input type="text" class="form-control" name="rentSn" readonly value="CZ_20251201083650188_79955">
+            </div>
+        </div>
+        <input type="hidden" name="carId" value="1">
+        <div class="form-group">
+            <label class="control-label col-md-2">车牌号</label>
+            <div class="col-md-10">
+                <input type="text" class="form-control" name="carNumber" readonly value="豫A11111">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">客户</label>
+            <div class="col-md-10">
+                <select class="form-control" name="customerId">
+                    <option value=""></option>
+                    <option value="1">张三</option>
+                    <option value="2">李四</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">起租时间</label>
+            <div class="col-md-10">
+                <input type="date" class="form-control" name="rentDate">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">归还时间</label>
+            <div class="col-md-10">
+                <input type="date" class="form-control" name="backDate">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">出租价格</label>
+            <div class="col-md-10">
+                <input type="text" class="form-control" name="rentPrice">
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">提交</button>
+            <button type="reset" class="btn btn-default">重置</button>
+            <button type="button" class="btn btn-default" onclick="history.back();">返回</button>
+        </div>
+    </form>
+</div>
+<!-- jQuery 和 Bootstrap JS -->
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

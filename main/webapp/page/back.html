@@ -1,0 +1,63 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>入库单列表</title>
+    <!-- 引入 Bootstrap -->
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/admin.css">
+</head>
+<body>
+<div class="page">
+    <!-- 路径导航 -->
+    <ol class="breadcrumb">
+        <li>首页</li>
+        <li class="active">入库单列表</li>
+    </ol>
+    <div class="container-fluid">
+        <!-- 表格 -->
+        <table class="table table-bordered table-striped table-hover">
+            <tr>
+                <th>入库单号</th>
+                <th>入库时间</th>
+                <th>出租单号</th>
+                <th>存在问题</th>
+                <th>问题描述</th>
+                <th>赔付金额</th>
+                <th>操作人</th>
+                <th>操作</th>
+            </tr>
+            <tr>
+                <td>GH_20251220093324371_15947</td>
+                <td>2025-12-20</td>
+                <td>CZ_20251201155709258_67172</td>
+                <td>违章</td>
+                <td>车辆有违章</td>
+                <td>200</td>
+                <td>admin</td>
+                <td>
+                    <a href="rent.html" class="btn btn-link btn-xs" onclick="return confirm('确定要撤销吗?')">撤销</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!-- 分页 -->
+    <div class="container-fluid">
+        <nav class="page-nav">
+            <ul class="pagination">
+                <li><a href="#"><span>上一页</span></a></li>
+                <li class="active"><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#"><span>下一页</span></a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<!-- jQuery 和 Bootstrap JS -->
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

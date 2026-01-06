@@ -1,0 +1,86 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>车辆类型统计</title>
+    <!-- 引入 Bootstrap -->
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+<div class="page">
+    <!-- 路径导航 -->
+    <ol class="breadcrumb">
+        <li>首页</li>
+        <li class="active">车辆类型统计</li>
+    </ol>
+    <div class="container-fluid">
+        <div id="main" style="height: 550px"></div>
+    </div>
+</div>
+<!-- jQuery -->
+<script src="/assets/js/jquery.min.js"></script>
+<!-- Echarts -->
+<script src="/assets/js/echarts.js"></script>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    let myChart = echarts.init(document.getElementById('main'));
+
+    // 指定图表的配置项和数据
+    let option = {
+        //标题
+        title: {
+            //主标题
+            text: '车辆类型统计',
+            //对齐方式
+            left: 'center'
+        },
+        //提示框
+        tooltip: {
+        },
+        /**
+         * 柱状图和折线图它们都属于类目图(类型图),展示在一个坐标系内
+         * 其中水平轴一般情况下为类目轴
+         * 垂直轴为数据轴
+         */
+        //x轴,水平轴,类目轴
+        xAxis: {
+            //轴的类型.category种类
+            type: 'category',
+            data: ['轿车', '越野车', '商务车', '跑车', '面包车']
+        },
+        //y轴,垂直轴,数据轴
+        yAxis: {
+            //数据名称
+            name: '数量',
+            //轴的类型.value数值
+            type: 'value',
+            //数值的最小值
+            minInterval: 1
+        },
+        //绘制图形
+        //series配置项的值是一个数组,数组中的每一个元素是一个对象.每个对象表示一个数据的系列
+        series: [
+            {
+                //数据系列的名称
+                name: '车辆',
+                //图形的类型: pie饼图(适合展示单系统数据的百分比) bar柱状图 line折线图
+                type: 'bar',
+                /**
+                 * 图形的数据
+                 * 柱状图和折线图: 数组,数组中存放是数据值(数字).
+                 */
+                data: [50, 32, 28, 16, 21]
+            },
+            // {
+            //   name: '车辆2',
+            //   type: 'bar',
+            //   data: [45, 28, 31, 24, 17]
+            // }
+        ]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+</body>
+</html>
