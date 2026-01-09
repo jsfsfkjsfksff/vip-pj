@@ -1,51 +1,62 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: X
-  Date: 2025/12/31
-  Time: 19:55
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>修改密码</title>
-    <!-- 引入 Bootstrap -->
-    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/assets/css/admin.css">
-</head>
-<body>
-<div class="page">
-    <!-- 路径导航 -->
-    <ol class="breadcrumb">
-        <li>首页</li>
-        <li class="active">修改密码</li>
-    </ol>
-    <!-- 新增表单 -->
-    <form class="form-horizontal sm-form" action="/changePassword" method="post">
-        <div class="form-group" style="text-align: center; color: red;">
-            ${error}
-        </div>
-        <div class="form-group">
-            <label class="control-label col-md-2">账号</label>
-            <div class="col-md-9">
-                <input type="text" class="form-control" name="username" readonly value="${sessionScope.user.userName}">
+<%-- Created by IntelliJ IDEA. User: X Date: 2025/12/31 Time: 19:55 To change this template use File | Settings | File
+    Templates. --%>
+    <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+        <html>
+
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>修改密码</title>
+            <!-- 引入 Bulma -->
+            <link rel="stylesheet" href="/assets/bulma/css/bulma.min.css">
+            <link rel="stylesheet" href="/assets/css/admin.css">
+        </head>
+
+        <body>
+            <div class="page-container">
+                <!-- 路径导航 -->
+                <nav class="breadcrumb" aria-label="breadcrumbs">
+                    <ul>
+                        <li><a href="#">首页</a></li>
+                        <li class="is-active"><a href="#" aria-current="page">修改密码</a></li>
+                    </ul>
+                </nav>
+
+                <div class="container" style="max-width: 500px; margin-top: 50px;">
+                    <div class="box form-box">
+                        <h2 class="title is-4 has-text-centered mb-5">修改登录密码</h2>
+
+                        <div style="text-align: center; color: var(--primary-color); margin-bottom: 1rem;">
+                            ${error}
+                        </div>
+
+                        <form action="/changePassword" method="post">
+                            <div class="field">
+                                <label class="label">账号</label>
+                                <div class="control">
+                                    <input class="input" type="text" name="username" readonly
+                                        value="${sessionScope.user.userName}" disabled>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label class="label">新密码</label>
+                                <div class="control">
+                                    <input class="input" type="password" name="password" placeholder="请输入新密码">
+                                </div>
+                            </div>
+
+                            <div class="field mt-5">
+                                <div class="control">
+                                    <button type="submit" class="button is-primary is-fullwidth">提交修改</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-md-2">新密码</label>
-            <div class="col-md-9">
-                <input type="password" class="form-control" name="password">
-            </div>
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary">提交</button>
-        </div>
-    </form>
-</div>
-<!-- jQuery 和 Bootstrap JS -->
-<script src="/assets/js/jquery.min.js"></script>
-<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
-</body>
-</html>
+            <!-- jQuery -->
+            <script src="/assets/js/jquery.min.js"></script>
+        </body>
+
+        </html>

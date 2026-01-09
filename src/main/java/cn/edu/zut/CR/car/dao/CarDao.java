@@ -1,5 +1,6 @@
 package cn.edu.zut.CR.car.dao;
 
+import cn.edu.zut.CR.VO.VIPC;
 import cn.edu.zut.CR.car.entity.Car;
 import cn.edu.zut.CR.car.entity.Car;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
@@ -52,4 +53,9 @@ public interface CarDao  {
      * 更改状态
      */
     int updateStatus(Integer id, String status);
+
+    /**
+     * 修改状态
+     */
+    int updateStatus(Car car);
 }

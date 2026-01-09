@@ -47,4 +47,15 @@ public class StringUtil {
 		} catch (Exception e) {}
 		return false;
 	}
+    // ...
+
+    /**
+     * 生成单号
+     * 规则: 固定的前缀 + 一个间隔符号 + 日期(4位年2位月2位日2位时2位分2位秒3毫秒) + 一个间隔符号 + 5位随机数
+     */
+    public static String createSn(String prefix){
+        String time = sdf.format(new Date());
+        int randomNum = random.nextInt(90000) + 10000;
+        return prefix + "_" + time + "_" + randomNum;
+    }
 }

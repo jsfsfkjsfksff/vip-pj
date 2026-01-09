@@ -1,69 +1,92 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+    <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+        <html>
 
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>修改客户</title>
-    <!-- 引入 Bootstrap -->
-    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/assets/css/admin.css">
-</head>
-<body>
-<div class="page">
-    <!-- 路径导航 -->
-    <ol class="breadcrumb">
-        <li>首页</li>
-        <li class="active">修改客户</li>
-    </ol>
-    <!-- 修改表单 -->
-    <form class="form-horizontal sm-form" action="<c:url value="/updateCustomer"/>" method="post">
-        <input type="hidden" name="id" value="${customer.id}">
-        <div class="form-group">
-            <label class="control-label col-md-2">身份证</label>
-            <div class="col-md-9">
-                <input type="text" class="form-control" name="identity" value="${customer.identity}">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>修改客户</title>
+            <!-- 引入 Bulma -->
+            <link rel="stylesheet" href="/assets/bulma/css/bulma.min.css">
+            <link rel="stylesheet" href="/assets/css/admin.css">
+        </head>
+
+        <body>
+            <div class="page-container">
+                <!-- 路径导航 -->
+                <nav class="breadcrumb" aria-label="breadcrumbs">
+                    <ul>
+                        <li><a href="#">首页</a></li>
+                        <li class="is-active"><a href="#" aria-current="page">修改客户</a></li>
+                    </ul>
+                </nav>
+
+                <!-- 修改表单 -->
+                <div class="form-box">
+                    <h1 class="title has-text-centered">修改客户信息</h1>
+                    <form action="<c:url value='/updateCustomer'/>" method="post">
+                        <input type="hidden" name="id" value="${customer.id}">
+
+                        <div class="field">
+                            <label class="label">身份证</label>
+                            <div class="control">
+                                <input class="input" type="text" name="identity" value="${customer.identity}">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">姓名</label>
+                            <div class="control">
+                                <input class="input" type="text" name="customerName" value="${customer.customerName}">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">性别</label>
+                            <div class="control">
+                                <div class="select is-fullwidth">
+                                    <select name="gender">
+                                        <option value=""></option>
+                                        <option value="男性" <c:if test="${customer.gender == '男性'}">selected</c:if>>男性
+                                        </option>
+                                        <option value="女性" <c:if test="${customer.gender == '女性'}">selected</c:if>>女性
+                                        </option>
+                                        <option value="保密" <c:if test="${customer.gender == '保密'}">selected</c:if>>保密
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">电话</label>
+                            <div class="control">
+                                <input class="input" type="text" name="phone" value="${customer.phoneNumber}">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">地址</label>
+                            <div class="control">
+                                <input class="input" type="text" name="address" value="${customer.address}">
+                            </div>
+                        </div>
+
+                        <div class="field is-grouped is-grouped-centered" style="margin-top: 2rem;">
+                            <div class="control">
+                                <button type="submit" class="button is-primary">提交</button>
+                            </div>
+                            <div class="control">
+                                <button type="reset" class="button is-light">重置</button>
+                            </div>
+                            <div class="control">
+                                <button type="button" class="button is-text" onclick="history.back();">返回</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-md-2">姓名</label>
-            <div class="col-md-9">
-                <input type="text" class="form-control" name="customerName" value="${customer.customerName}">
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-md-2">性别</label>
-            <div class="col-md-9">
-                    <select class="form-control" name="gender">
-                        <option value=""></option>
-                        <option value="男性" <c:if test="${customer.gender == '男性'}">selected</c:if>>男性</option>
-                        <option value="女性" <c:if test="${customer.gender == '女性'}">selected</c:if>>女性</option>
-                        <option value="保密" <c:if test="${customer.gender == '保密'}">selected</c:if>>保密</option>
-                    </select>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-md-2">电话</label>
-            <div class="col-md-9">
-                    <input type="text" class="form-control" name="phone" value="${customer.phoneNumber}">
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-md-2">地址</label>
-            <div class="col-md-9">
-                    <input type="text" class="form-control" name="address" value="${customer.address}">
-            </div>
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary">提交</button>
-            <button type="reset" class="btn btn-default">重置</button>
-            <button type="button" class="btn btn-default" onclick="history.back();">返回</button>
-        </div>
-    </form>
-</div>
-<!-- jQuery 和 Bootstrap JS -->
-<script src="/assets/js/jquery.min.js"></script>
-<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
-</body>
-</html>
+            <script src="/assets/js/jquery.min.js"></script>
+        </body>
+
+        </html>

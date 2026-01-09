@@ -19,6 +19,7 @@ public class DeleteCar extends HttpServlet {
         Integer id = Integer.valueOf(req.getParameter("id"));
         CarDaoImpl CarDao = new CarDaoImpl();
         Car byId = CarDao.getById(id);
+        System.out.println(byId.getPicture());
         //delete yunpicture
         HuaweiUtil.delete(byId.getPicture());
         //delete database record

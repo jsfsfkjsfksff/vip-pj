@@ -10,7 +10,7 @@ public class HuaweiUtil {
     private static final String ak = "HPUA4O4FOPY59ZGFHIA1";
     private static final String sk = "9QyY3sc1L9NvbBgkXn6TWRwXYqcoXgzPINp5cpWN";
     private static final String endPoint = "obs.cn-east-5.myhuaweicloud.com";
-    private static final String bucket = "car-rent-pj";
+    private static final String bucket = "car-rent-pj-5580";
 
     /**
      * 上传文件到云存储

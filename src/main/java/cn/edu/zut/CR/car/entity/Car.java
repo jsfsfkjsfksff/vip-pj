@@ -1,5 +1,6 @@
 package cn.edu.zut.CR.car.entity;
 
+import cn.edu.zut.CR.car_customer.CarCustomer;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -52,19 +53,9 @@ public class Car implements Serializable {
     private String type;
 
     /**
-     * 颜色
-     */
-    private String color;
-
-    /**
      * 出租价格
      */
     private BigDecimal rentPrice;
-
-    /**
-     * 出租押金
-     */
-    private BigDecimal deposit;
 
     /**
      * 状态（未出租,已出租）
@@ -84,4 +75,5 @@ public class Car implements Serializable {
     private Timestamp createTime;
 
     private Timestamp updateTime;
+    private CarCustomer carCustomer;
 }
